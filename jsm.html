@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSM</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F7F7F7;
+  color: black;
+}
+
+/* NAV */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 100;
+  color: white;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 80px;
+
+  background-image: url("cluster.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 70px;
+  line-height: 1;
+}
+
+.hero p {
+  margin: 20px 0;
+  color: #ccc;
+}
+
+.btn {
+  width: fit-content;
+  padding: 12px 30px;
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 120px 80px;
+}
+
+.section h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.dark {
+  background: #BABABA;
+}
+
+/* CARDS */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 60px;
+      flex-wrap: nowrap;
+    }
+
+    .artist-card {
+      width: 260px;
+      background: #1c1c1c;
+      padding: 50px 30px;
+      text-align: center;
+      border-radius: 20px;
+      transition: 0.4s ease;
+    }
+
+    .artist-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .artist-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    .artist-name {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'Anton', sans-serif;
+      font-size: 22px;
+      letter-spacing: 4px;
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .artist-name::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: white;
+      transform: translateX(-50%);
+      transition: 0.3s ease;
+    }
+
+    .artist-name:hover::after {
+      width: 70%;
+    }
+/* SOCIALS */
+.socials a {
+  display: inline-block;
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.socials a:hover {
+  border-color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #000;
+  font-size: 14px;
+  color: #777;
+}
+
+.socials {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.socials img {
+  width: 40px;
+  filter: invert(1);
+  transition: 0.3s;
+}
+
+.socials a:hover img {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+.socials img {
+  width: 95px;
+  padding: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+/* CONTACT SECTION */
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 60px;
+  background: #f7f7f7;
+  padding: 60px;
+  border-radius: 20px;
+}
+
+.contact-info h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.contact-info p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.details {
+  font-size: 16px;
+  line-height: 2;
+  color: #111;
+}
+
+/* FORM */
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #000;
+}
+
+/* BUTTON */
+
+.contact-form button {
+  margin-top: 25px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #000;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    padding: 40px;
+  }
+}
+
+/* ======================
+   RESPONSIVE GLOBAL
+====================== */
+
+@media (max-width: 1000px) {
+
+  header {
+    padding: 20px 30px;
+  }
+
+  nav a {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding-left: 30px;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .section {
+    padding: 80px 30px;
+  }
+  
+@media (max-width: 900px) {
+  .cards {
+    flex-wrap: wrap;
+  }
+}
+
+  .socials {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .socials img {
+    width: 70px;
+  }
+}
+
+.artist-name {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* ligne élégante sous le nom */
+.artist-name::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: white;
+  transform: translateX(-50%);
+  transition: 0.3s ease;
+}
+
+.artist-name:hover {
+  color: #ddd;
+}
+
+.artist-name:hover::after {
+  width: 60%;
+}
+
+.artist-card:hover {
+  transform: translateY(-6px);
+  transition: 0.4s ease;
+}
+
+/* TELEPHONE */
+
+@media (max-width: 600px) {
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .contact-wrapper {
+    padding: 30px;
+  }
+}
+</style>
+<body>
+
+  <!-- NAV -->
+  <header>
+  <div class="logo">
+  <a href="#accueil">
+    <img src="jsm.png" alt="Logo JSM">
+  </a>
+</div>
+
+    <nav>
+      <a href="#about">Association</a>
+      <a href="#artists">Artistes</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="accueil" class="hero">
+    <h1>ASSOCIATION CULTURELLE</h1>
+    <p>Studio, accompagnement, visibilité et création musicale.</p>
+    <a class="btn" href="https://shotgun.live/en/venues/jesuismoilabel" target="_blank">
+  Découvrir
+</a>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>L'ASSOCIATION</h2>
+    <p>
+      Nous accompagnons les jeunes talents dans le développement de leurs projets 
+musicaux :
+      enregistrement, clips, événements et diffusion.
+    </p>
+  </section>
+
+  <!-- ARTISTS -->
+  <section id="artists" class="section dark">
+    <h2>NOS ARTISTES</h2>
+
+    <div class="cards">
+
+  <div class="artist-card">
+    <img src="kito.png" alt="KITO">
+    <a href="https://www.instagram.com/kitolenergie/" target="_blank" class="artist-name">
+      KITO
+    </a>
+  </div>
+
+  <div class="artist-card">
+    <img src="chris.png" alt="Chris Itoua">
+    <a href="https://www.instagram.com/chrisitoua07" target="_blank" class="artist-name">
+      CHRIS ITOUA
+    </a>
+  </div>
+
+  <div class="artist-card">
+    <img src="rdn.png" alt="Zé">
+    <a href="https://www.instagram.com/ze_officiel/" target="_blank" class="artist-name">
+      ZÉ
+    </a>
+  </div>
+
+</div>
+
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2>PROJETS</h2>
+    <p>Clips, freestyles, scènes ouvertes, événements.</p>
+  </section>
+
+  <!-- CONTACT -->
+<section id="contact" class="section dark">
+  <h2>NOUS SUIVRE</h2>
+
+  <div class="socials">
+
+    <a href="https://www.tiktok.com/@jsmlabel0" target="_blank">
+      <img src="tiktok.png" alt="TikTok">
+    </a>
+
+    <a href="https://www.youtube.com/@jsmlabel/videos" target="_blank">
+      <img src="youtube.png" alt="YouTube">
+    </a>
+
+    <a href="https://x.com/jsmlabel" target="_blank">
+      <img src="twitter.webp" alt="Twitter">
+    </a>
+
+   <a href="https://www.instagram.com/jsmlabel?igsh=MXIxYXdzMXFpZ2F3bA%3D%3D" target
+="_blank">
+      <img src="instagram.webp" alt="Instagram">
+    </a> 
+	
+	<a href=
+"https://open.spotify.com/intl-fr/album/5Xfso8lBsiruaqhKMYapHB?si=Ruk0a0kIS6i9l8Q
+xW3x85g&nd=1&dlsi=a73ea553a2c94c57" target="_blank">
+      <img src="spotify.png" alt="Spotify">
+    </a>
+	
+	<a href="https://music.apple.com/us/album/cluster-vol-1-ep/1817300962" target=
+"_blank">
+      <img src="AppleMusic.png" alt="AppleMusic">
+    </a>
+	
+	<a href=
+"https://www.deezer.com/fr/album/763854281?host=6563720581&utm_campaign=clipboard
+-generic&utm_source=user_sharing&utm_content=album-763854281&deferredFl=1" target
+="_blank">
+      <img src="deezer.png" alt="Deezer">
+    </a>
+  </div>
+  
+  <div class="contact-wrapper">
+
+  <!-- LEFT COLUMN : TEXT + INFO -->
+  <div class="contact-info">
+    <h2>Restons en contact</h2>
+    <p>
+Vous êtes artiste, partenaire ou porteur de projet ?
+Contactez l’association pour échanger et collaborer.
+</p>
+
+
+    <div class="details">
+      📞 06 85 21 74 98<br>
+      ✉️ <a href="mailto:labeljsm@gmail.com">
+  labeljsm@gmail.com
+</a>
+<br>
+      📍 92500 RUEIL-MALMAISON, France
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN : FORM -->
+<div class="contact-form">
+  <form action="https://formspree.io/f/xjggrvrk" method="POST">
+    <label>Prénom</label>
+    <input type="text" name="prenom" placeholder="Votre prénom">
+
+    <label>Nom de famille</label>
+    <input type="text" name="nom" placeholder="Votre nom">
+
+    <label>E-mail *</label>
+    <input type="email" name="email" placeholder="Votre email" required>
+
+    <label>Message</label>
+	<input type="hidden" name="_subject" value="Nouveau message – Site JSM">
+
+    <textarea name="message" placeholder="Votre message" required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</div>
+
+
+  </div>
+</section>
+  <footer>
+    © JSM Label - Maison de disques - 2026
+  </footer>
+
+  <script>
+  // animation simple au scroll
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      section.style.opacity = 1;
+      section.style.transform = "translateY(0)";
+    }
+  });
+});
+
+// effet initial
+sections.forEach(section => {
+  section.style.opacity = 0;
+  section.style.transform = "translateY(50px)";
+  section.style.transition = "0.8s";
+});
+
+  </script>
+</body>
+</html>
