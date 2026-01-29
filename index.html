@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSM</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSM Label</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-
-  <link rel="stylesheet" href="style.css">
-</head>
 <style>
+
+/* =====================
+   BASE
+===================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -20,319 +21,242 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #F7F7F7;
-  color: black;
+  background: #0b0b0b;
+  color: white;
+  overflow-x: hidden;
 }
 
-/* NAV */
+/* =====================
+   NAV
+===================== */
+
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 60px;
+  padding: 25px 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0,0,0,0.8);
   z-index: 100;
-  color: white;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
 }
 
 .logo img {
   height: 45px;
-  width: auto;
 }
 
 nav a {
-  margin-left: 25px;
-  text-decoration: none;
+  margin-left: 30px;
   color: white;
+  text-decoration: none;
   font-weight: 500;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 80px;
-
-  background-image: url("cluster.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-.hero h1 {
-  font-family: 'Anton', sans-serif;
-  font-size: 70px;
-  line-height: 1;
-}
-
-.hero p {
-  margin: 20px 0;
-  color: #ccc;
-}
-
-.btn {
-  width: fit-content;
-  padding: 12px 30px;
-  border: 2px solid black;
-  color: black;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-/* SECTIONS */
-.section {
-  padding: 120px 80px;
-}
-
-.section h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.dark {
-  background: #BABABA;
-}
-
-/* CARDS */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 50px;
-  margin-top: 60px;
-  justify-items: center;
-}
-
-    .artist-card {
-  width: 100%;
-  max-width: 240px;
-  background: #1c1c1c;
-  padding: 45px 25px;
-  text-align: center;
-  border-radius: 20px;
-  transition: 0.4s ease;
-}
-
-
-    .artist-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .artist-card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid white;
-    }
-
-    .artist-name {
-      display: inline-block;
-      margin-top: 20px;
-      font-family: 'Anton', sans-serif;
-      font-size: 22px;
-      letter-spacing: 4px;
-      color: white;
-      text-decoration: none;
-      position: relative;
-    }
-
-    .artist-name::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -8px;
-      width: 0;
-      height: 2px;
-      background: white;
-      transform: translateX(-50%);
-      transition: 0.3s ease;
-    }
-
-    .artist-name:hover::after {
-      width: 70%;
-    }
-/* SOCIALS */
-.socials a {
-  display: inline-block;
-  margin-right: 20px;
-  color: white;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-}
-
-.socials a:hover {
-  border-color: white;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #000;
-  font-size: 14px;
-  color: #777;
-}
-
-.socials {
-  display: flex;
-  gap: 30px;
-  margin-top: 30px;
-  align-items: center;
-}
-
-.socials img {
-  width: 40px;
-  filter: invert(1);
+  opacity: 0.8;
   transition: 0.3s;
 }
 
-.socials a:hover img {
-  transform: scale(1.2);
-  opacity: 0.7;
+nav a:hover {
+  opacity: 1;
 }
 
-.socials img {
-  width: 95px;
-  padding: 12px;
-  border: 2px solid white;
-  border-radius: 50%;
+/* =====================
+   HERO
+===================== */
+
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+}
+
+.hero video,
+.hero::before {
+  position: absolute;
+  inset: 0;
+}
+
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
 }
 
 .hero::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+  z-index: -1;
 }
 
-.hero {
-  position: relative;
+.hero-content {
+  max-width: 650px;
+  animation: fadeUp 1.2s ease forwards;
 }
 
-.hero * {
-  position: relative;
-  z-index: 1;
-  color: white;
-}
-
-/* CONTACT SECTION */
-
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 60px;
-  background: #f7f7f7;
-  padding: 60px;
-  border-radius: 20px;
-}
-
-.contact-info h2 {
+.hero h1 {
   font-family: 'Anton', sans-serif;
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #111;
+  font-size: 82px;
+  line-height: 1;
+  margin-bottom: 25px;
 }
 
-.contact-info p {
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 30px;
+.hero span {
+  color: #b8ff3b;
 }
 
-.details {
-  font-size: 16px;
-  line-height: 2;
-  color: #111;
+.hero p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 40px;
 }
 
-/* FORM */
-
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-form label {
-  font-size: 14px;
-  margin-bottom: 6px;
-  margin-top: 15px;
-  color: #333;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  outline: none;
-}
-
-.contact-form textarea {
-  resize: none;
-  min-height: 120px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #000;
-}
-
-/* BUTTON */
-
-.contact-form button {
-  margin-top: 25px;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: #000;
+.hero a {
+  padding: 16px 45px;
+  border: 2px solid white;
   color: white;
-  font-size: 16px;
-  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 2px;
   transition: 0.3s;
 }
 
-.contact-form button:hover {
-  background: #222;
-  transform: translateY(-2px);
+.hero a:hover {
+  background: white;
+  color: black;
 }
 
-/* RESPONSIVE */
+/* =====================
+   SECTIONS
+===================== */
 
-@media (max-width: 900px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    padding: 40px;
+.section {
+  padding: 140px 100px;
+}
+
+.section h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 54px;
+  margin-bottom: 30px;
+}
+
+.section p {
+  max-width: 750px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+/* =====================
+   BIG TEXT
+===================== */
+
+.big-text {
+  font-size: 120px;
+  font-family: 'Anton', sans-serif;
+  opacity: 0.05;
+  position: absolute;
+  right: 80px;
+  top: 40px;
+}
+
+/* =====================
+   ARTISTS
+===================== */
+
+.artists {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-top: 70px;
+}
+
+.artist {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.artist img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.artist:hover img {
+  transform: scale(1.1);
+}
+
+.artist-name {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  letter-spacing: 3px;
+}
+
+/* =====================
+   CTA
+===================== */
+
+.cta {
+  text-align: center;
+  padding: 160px 40px;
+  background: #111;
+}
+
+.cta h2 {
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 18px 55px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* =====================
+   ANIM
+===================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ======================
-   RESPONSIVE GLOBAL
-====================== */
+/* =====================
+   RESPONSIVE
+===================== */
 
-@media (max-width: 1000px) {
-
-  header {
-    padding: 20px 30px;
-  }
-
-  nav a {
-    margin-left: 15px;
-    font-size: 14px;
-  }
+@media(max-width:900px) {
 
   .hero {
     padding-left: 30px;
-    text-align: left;
   }
 
   .hero h1 {
@@ -340,343 +264,103 @@ footer {
   }
 
   .section {
-    padding: 80px 30px;
-  }
-  
-@media (max-width: 900px) {
-  .cards {
-    flex-wrap: wrap;
-  }
-}
-
-  .socials {
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 100px 30px;
   }
 
-  .socials img {
-    width: 70px;
-  }
-}
-
-.artist-name {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: 'Anton', sans-serif;
-  font-size: 22px;
-  letter-spacing: 3px;
-  text-decoration: none;
-  color: white;
-  position: relative;
-  transition: 0.3s ease;
-}
-
-/* ligne élégante sous le nom */
-.artist-name::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: white;
-  transform: translateX(-50%);
-  transition: 0.3s ease;
-}
-
-.artist-name:hover {
-  color: #ddd;
-}
-
-.artist-name:hover::after {
-  width: 60%;
-}
-
-.artist-card:hover {
-  transform: translateY(-6px);
-  transition: 0.4s ease;
-}
-
-/* TELEPHONE */
-
-@media (max-width: 600px) {
-
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  .contact-wrapper {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .cards {
+  .artists {
     grid-template-columns: 1fr;
   }
+
 }
 
 </style>
+</head>
+
 <body>
 
-  <!-- NAV -->
-  <header>
+<header>
   <div class="logo">
-  <a href="#accueil">
-    <img src="jsm.png" alt="Logo JSM">
-  </a>
-</div>
+    <img src="jsm.png">
+  </div>
+  <nav>
+    <a href="index.html">Association</a>
+    <a href="artiste.html">Artistes</a>
+    <a href="#">contact.html</a>
+  </nav>
+</header>
 
-    <nav>
-      <a href="#about">Association</a>
-      <a href="#artists">Artistes</a>
-      <a href="#projects">Projets</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- HERO -->
+<section class="hero">
 
-  <!-- HERO -->
-  <section id="accueil" class="hero">
-    <h1>ASSOCIATION CULTURELLE</h1>
-    <p>Studio, accompagnement, visibilité et création musicale.</p>
-    <a class="btn" href="https://shotgun.live/en/venues/jesuismoilabel" target="_blank">
-  Découvrir
-</a>
+  <!-- remplace par image si t’as pas vidéo -->
+  <video autoplay muted loop>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
 
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2>L'ASSOCIATION</h2>
+  <div class="hero-content">
+    <h1>LA JEUNESSE<br><span>FAIT DU BRUIT</span></h1>
     <p>
-      Nous accompagnons les jeunes talents dans le développement de leurs projets 
-musicaux :
-      enregistrement, clips, événements et diffusion.
+      JSM Label accompagne la nouvelle génération d’artistes
+      dans la création, la production et la diffusion musicale.
     </p>
-  </section>
 
-  <!-- ARTISTS -->
-<section id="artists" class="section dark">
-  <h2>NOS ARTISTES</h2>
-
-  <div class="cards">
-
-    <div class="artist-card">
-      <img src="kito.png" alt="KITO">
-      <a href="https://www.instagram.com/kitolenergie/" target="_blank" class="artist-name">KITO</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="chris.png" alt="CHRIS ITOUA">
-      <a href="https://www.instagram.com/chrisitoua07" target="_blank" class="artist-name">CHRIS ITOUA</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="rdn.png" alt="ZÉ">
-      <a href="https://www.instagram.com/ze_officiel/" target="_blank" class="artist-name">ZÉ</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="bonchh.png" alt="BONCHH">
-      <a href="https://www.instagram.com/bonchh187/" class="artist-name">BONCHH</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="brook.png" alt="BROOK">
-      <a href="#" class="artist-name">BROOK</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="el kana.png" alt="EL KANA">
-      <a href="#" class="artist-name">EL KANA</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="gourou.png" alt="GOUROU">
-      <a href="https://www.instagram.com/gourou242/" class="artist-name">GOUROU</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="ina.png" alt="INA">
-      <a href="https://www.instagram.com/ina.kara_/" class="artist-name">INA</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="n'ta.png" alt="N'TA">
-      <a href="https://www.instagram.com/ntadu92/" class="artist-name">N'TA</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="oana.png" alt="OANA">
-      <a href="https://www.instagram.com/oanamabia/" class="artist-name">OANA</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="rony.png" alt="RONY">
-      <a href="https://www.instagram.com/rony92_/" class="artist-name">RONY</a>
-    </div>
-	
-	<div class="artist-card">
-      <img src="veusty.png" alt="RONY">
-      <a href="#" class="artist-name">VEUSTY</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="yepsi.png" alt="YEPSI">
-      <a href="https://www.instagram.com/yepsi_92/" class="artist-name">YEPSI</a>
-    </div>
-
-    <div class="artist-card">
-      <img src="ely.png" alt="ELY">
-      <a href="https://www.instagram.com/elidjahclr/" class="artist-name">ELY</a>
-    </div>
-
+    <a href="#">DÉCOUVRIR</a>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>L'ASSOCIATION</h2>
+  <p>
+    JSM Label est une association culturelle dédiée à l’accompagnement des jeunes
+    passionnés de musique. Notre objectif est de donner une vraie chance aux talents
+    émergents en leur offrant un cadre professionnel, créatif et motivant.
+  </p>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2>PROJETS</h2>
-    <p>Clips, freestyles, scènes ouvertes, événements.</p>
-  </section>
+  <p>
+    Nous accompagnons les artistes dans toutes les étapes de leur parcours :
+    enregistrement en studio, développement artistique, création de contenus,
+    communication et diffusion sur les plateformes musicales.
+  </p>
 
-  <!-- CONTACT -->
-<section id="contact" class="section dark">
-  <h2>NOUS SUIVRE</h2>
-
-  <div class="socials">
-
-    <a href="https://www.tiktok.com/@jsmlabel0" target="_blank">
-      <img src="tiktok.png" alt="TikTok">
-    </a>
-
-    <a href="https://www.youtube.com/@jsmlabel/videos" target="_blank">
-      <img src="Youtube.png" alt="YouTube">
-    </a>
-
-    <a href="https://x.com/jsmlabel" target="_blank">
-      <img src="twitter.webp" alt="Twitter">
-    </a>
-
-   <a href="https://www.instagram.com/jsmlabel?igsh=MXIxYXdzMXFpZ2F3bA%3D%3D" target
-="_blank">
-      <img src="instagram.webp" alt="Instagram">
-    </a> 
-	
-	<a href=
-"https://open.spotify.com/intl-fr/album/5Xfso8lBsiruaqhKMYapHB?si=Ruk0a0kIS6i9l8Q
-xW3x85g&nd=1&dlsi=a73ea553a2c94c57" target="_blank">
-      <img src="spotify.png" alt="Spotify">
-    </a>
-	
-	<a href="https://music.apple.com/us/album/cluster-vol-1-ep/1817300962" target=
-"_blank">
-      <img src="AppleMusic.png" alt="AppleMusic">
-    </a>
-	
-	<a href=
-"https://www.deezer.com/fr/album/763854281?host=6563720581&utm_campaign=clipboard
--generic&utm_source=user_sharing&utm_content=album-763854281&deferredFl=1" target
-="_blank">
-      <img src="deezer.png" alt="Deezer">
-    </a>
-  </div>
-  
-  <div class="contact-wrapper">
-
-  <!-- LEFT COLUMN : TEXT + INFO -->
-  <div class="contact-info">
-    <h2>Restons en contact</h2>
-    <p>
-Vous êtes artiste, partenaire ou porteur de projet ?
-Contactez l’association pour échanger et collaborer.
-</p>
-
-
-    <div class="details">
-      📞 06 85 21 74 98<br>
-      ✉️ <a href="mailto:labeljsm@gmail.com">
-  labeljsm@gmail.com
-</a>
-<br>
-      📍 92500 RUEIL-MALMAISON, France
-    </div>
-  </div>
-
-  <!-- RIGHT COLUMN : FORM -->
-<div class="contact-form">
-  <form action="https://formspree.io/f/xjggrvrk" method="POST">
-    <label>Prénom</label>
-    <input type="text" name="prenom" placeholder="Votre prénom">
-
-    <label>Nom de famille</label>
-    <input type="text" name="nom" placeholder="Votre nom">
-
-    <label>E-mail *</label>
-    <input type="email" name="email" placeholder="Votre email" required>
-
-    <label>Message</label>
-	<input type="hidden" name="_subject" value="Nouveau message – Site JSM">
-
-    <textarea name="message" placeholder="Votre message" required></textarea>
-
-    <button type="submit">Envoyer</button>
-  </form>
-</div>
-
-
-  </div>
+  <p>
+    À travers nos activités, nous souhaitons encourager l’expression artistique,
+    la discipline, le travail d’équipe et l’ambition, tout en créant une vraie
+    communauté autour de la musique.
+  </p>
 </section>
-  <footer>
-    © JSM Label - Maison de disques - 2026
-  </footer>
 
-  <script>
-  // animation simple au scroll
-const sections = document.querySelectorAll(".section");
+<section id="projects" class="section">
+  <h2>PROJETS</h2>
 
-window.addEventListener("scroll", () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      section.style.opacity = 1;
-      section.style.transform = "translateY(0)";
-    }
-  });
-});
+  <p>
+    JSM Label développe différents projets artistiques tout au long de l’année.
+    De la production musicale à la création visuelle, l’association soutient
+    les artistes dans la réalisation de leurs idées.
+  </p>
 
-// effet initial
-sections.forEach(section => {
-  section.style.opacity = 0;
-  section.style.transform = "translateY(50px)";
-  section.style.transition = "0.8s";
-});
+  <p>
+    Nos projets incluent notamment :
+  </p>
 
-  </script>
+  <ul>
+    <li>Enregistrements studio</li>
+    <li>Sorties de singles et EP</li>
+    <li>Clips vidéo</li>
+    <li>Sessions live et freestyles</li>
+    <li>Événements et scènes ouvertes</li>
+  </ul>
+</section
+
+<!-- CTA -->
+<section class="cta">
+  <h2>REJOINS LE MOUVEMENT</h2>
+  <a href="contact.html">NOUS CONTACTER</a>
+</section>
+
+<footer>
+  © JSM Label — 2026
+</footer>
+
 </body>
-
 </html>
-
-
