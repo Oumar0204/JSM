@@ -101,22 +101,24 @@ nav a {
 }
 
 /* CARDS */
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 60px;
-      flex-wrap: nowrap;
-    }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 50px;
+  margin-top: 60px;
+  justify-items: center;
+}
 
     .artist-card {
-      width: 260px;
-      background: #1c1c1c;
-      padding: 50px 30px;
-      text-align: center;
-      border-radius: 20px;
-      transition: 0.4s ease;
-    }
+  width: 100%;
+  max-width: 240px;
+  background: #1c1c1c;
+  padding: 45px 25px;
+  text-align: center;
+  border-radius: 20px;
+  transition: 0.4s ease;
+}
+
 
     .artist-card:hover {
       transform: translateY(-10px);
@@ -422,6 +424,19 @@ footer {
     padding: 30px;
   }
 }
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 <body>
 
@@ -462,36 +477,84 @@ musicaux :
   </section>
 
   <!-- ARTISTS -->
-  <section id="artists" class="section dark">
-    <h2>NOS ARTISTES</h2>
+<section id="artists" class="section dark">
+  <h2>NOS ARTISTES</h2>
 
-    <div class="cards">
+  <div class="cards">
 
-  <div class="artist-card">
-    <img src="kito.png" alt="KITO">
-    <a href="https://www.instagram.com/kitolenergie/" target="_blank" class="artist-name">
-      KITO
-    </a>
+    <div class="artist-card">
+      <img src="kito.png" alt="KITO">
+      <a href="https://www.instagram.com/kitolenergie/" target="_blank" class="artist-name">KITO</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="chris.png" alt="CHRIS ITOUA">
+      <a href="https://www.instagram.com/chrisitoua07" target="_blank" class="artist-name">CHRIS ITOUA</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="rdn.png" alt="ZÉ">
+      <a href="https://www.instagram.com/ze_officiel/" target="_blank" class="artist-name">ZÉ</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="bonchh.png" alt="BONCHH">
+      <a href="https://www.instagram.com/bonchh187/" class="artist-name">BONCHH</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="brook.png" alt="BROOK">
+      <a href="#" class="artist-name">BROOK</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="el kana.png" alt="EL KANA">
+      <a href="#" class="artist-name">EL KANA</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="gourou.png" alt="GOUROU">
+      <a href="https://www.instagram.com/gourou242/" class="artist-name">GOUROU</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="ina.png" alt="INA">
+      <a href="https://www.instagram.com/ina.kara_/" class="artist-name">INA</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="n'ta.png" alt="N'TA">
+      <a href="https://www.instagram.com/ntadu92/" class="artist-name">N'TA</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="oana.png" alt="OANA">
+      <a href="https://www.instagram.com/oanamabia/" class="artist-name">OANA</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="rony.png" alt="RONY">
+      <a href="https://www.instagram.com/rony92_/" class="artist-name">RONY</a>
+    </div>
+	
+	<div class="artist-card">
+      <img src="veusty.png" alt="RONY">
+      <a href="#" class="artist-name">VEUSTY</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="yepsi.png" alt="YEPSI">
+      <a href="https://www.instagram.com/yepsi_92/" class="artist-name">YEPSI</a>
+    </div>
+
+    <div class="artist-card">
+      <img src="ely.png" alt="ELY">
+      <a href="https://www.instagram.com/elidjahclr/" class="artist-name">ELY</a>
+    </div>
+
   </div>
+</section>
 
-  <div class="artist-card">
-    <img src="chris.png" alt="Chris Itoua">
-    <a href="https://www.instagram.com/chrisitoua07" target="_blank" class="artist-name">
-      CHRIS ITOUA
-    </a>
-  </div>
-
-  <div class="artist-card">
-    <img src="rdn.png" alt="Zé">
-    <a href="https://www.instagram.com/ze_officiel/" target="_blank" class="artist-name">
-      ZÉ
-    </a>
-  </div>
-
-</div>
-
-
-  </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="section">
